@@ -2,6 +2,7 @@ from .alexnet import *
 from .vgg import *
 from .lenet import *
 from .zfnet import *
+from .resnet import *
 from .mobilenet import *
 from .mobilenetv2 import *
 from .squeezenet import *
@@ -17,6 +18,11 @@ def Backbone(input_shape, classes, filters = 64, include_top = True, backbone_na
     elif backbone_name == "alexnet"     : model = Alexnet(classes, filters, include_top)
     elif backbone_name == "lenet"       : model = LeNet(classes, include_top)
     elif backbone_name == "zfnet"       : model = ZFnet(classes, filters, include_top)
+    elif backbone_name == "resnet18"    : model = Resnet_1(classes, "resnet18", filters, include_top)
+    elif backbone_name == "resnet34"    : model = Resnet_1(classes, "resnet34", filters, include_top)
+    elif backbone_name == "resnet50"    : model = Resnet_2(classes, "resnet50", filters, include_top)
+    elif backbone_name == "resnet101"   : model = Resnet_2(classes, "resnet101", filters, include_top)
+    elif backbone_name == "resnet152"   : model = Resnet_2(classes, "resnet152", filters, include_top)
     elif backbone_name == "mobilenet"   : model = Mobilenet(classes, filters, include_top)
     elif backbone_name == "mobilenetv2" : model = Mobilenetv2(classes, filters, include_top)
     elif backbone_name == "squeezenet"  : model = Squeezenet(classes, filters, include_top)

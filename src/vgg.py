@@ -67,24 +67,3 @@ class VGG(tf.keras.Model):
             x = self.dense3(x)
 
         return x
-
-#-------------------------------------------------------------------------------
-def VGG11(input_shape, classes, filters = 64):
-    model = VGG(classes, "vgg11", filters, include_top = True)
-    model.build(input_shape = input_shape)
-    return model
-
-def VGG13(input_shape, classes, filters = 64):
-    model = VGG(classes, "vgg13", filters, include_top = True)
-    model.build(input_shape = input_shape)
-    return model
-
-def VGG16(input_shape, classes, filters = 64):
-    model = VGG(classes, "vgg16", filters, include_top = True)
-    model.build(input_shape = input_shape)
-    return model
-
-def VGG19(input_shape, classes, filters = 64):
-    model = VGG(classes, "vgg19", filters, include_top = True)
-    model.build(input_shape = input_shape)
-    return model

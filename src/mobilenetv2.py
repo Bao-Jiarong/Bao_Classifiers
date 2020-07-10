@@ -92,9 +92,3 @@ class Mobilenetv2(tf.keras.Model):
             # print("\nconv3 Input",x.shape)
             x = self.out(x)
             return x
-
-#------------------------------------------------------------------------------
-def MobileNetv2(input_shape, classes, filters = 8):
-    model = Mobilenetv2(classes)
-    model.build(input_shape = input_shape)
-    return model

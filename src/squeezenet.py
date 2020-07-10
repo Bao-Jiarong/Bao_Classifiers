@@ -75,9 +75,3 @@ class Squeezenet(tf.keras.Model):
             x = self.globalaverage(x)
             x = self.softmax(x)
             return x
-
-#------------------------------------------------------------------------------
-def SqueezeNet(input_shape, classes, filters = 16):
-    model = Squeezenet(classes)
-    model.build(input_shape = input_shape)
-    return model

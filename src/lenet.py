@@ -49,9 +49,3 @@ class LeNet(tf.keras.Model):
             x = self.dense1(x)
             x = self.dense2(x)
             return x
-
-#------------------------------------------------------------------------------
-def LeNet_5(input_shape, classes):
-    model = LeNet(classes)
-    model.build(input_shape = input_shape)
-    return model

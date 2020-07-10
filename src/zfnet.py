@@ -56,9 +56,3 @@ class ZFnet(tf.keras.Model):
             x = self.dense3(x)
             x = self.dense4(x)
             return x
-
-#------------------------------------------------------------------------------
-def ZFNet(input_shape, classes, filters):
-    model = ZFnet(classes, filters = filters)
-    model.build(input_shape = input_shape)
-    return model

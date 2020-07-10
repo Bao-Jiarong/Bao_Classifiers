@@ -1,8 +1,8 @@
 '''
   Author       : Bao Jiarong
-  Creation Date: 2020-06-20
+  Creation Date: 2020-07-09
   email        : bao.salirong@gmail.com
-  Task         : AlexNet & VGG Implementation
+  Task         : Classifier
   Dataset      : MNIST Digits (0,1,...,9)
 '''
 
@@ -25,10 +25,11 @@ height     = 224 >> 2
 channel    = 3
 n_outputs  = 10
 
-backbone_names = ["VGG11","VGG13","VGG16","VGG19","alexnet","zfnet","lenet",
+backbone_names = ["VGG11","VGG13","VGG16","VGG19","alexnet","lenet","zfnet",
+                  "resnet18","resnet34","resnet50","resnet101","resnet152",
                   "squeezenet","squeezenetv2","squeezenetv3",
-                  "mobilenet","mobilenetv2",]
-backbone_name = backbone_names[0]
+                  "mobilenet","mobilenetv2"]
+backbone_name = backbone_names[11]
 model_name = "models/"+backbone_name+"/digists"
 data_path  = "../data_img/MNIST/train/"
 
@@ -38,9 +39,9 @@ lr_rate    = 0.0001
 batch_size = 32
 
 # Step 1: Create Model
-model = src.backbone.Backbone((None,height, width, channel),
+model = src.backbone.Backbone((None, height, width, channel),
                               classes = n_outputs,
-                              filters = 8,
+                              filters = 6,
                               include_top = True,
                               backbone_name = backbone_name)
 

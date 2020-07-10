@@ -41,8 +41,11 @@ class Mobilenet(tf.keras.Model):
         self.block4 = Block(2, filters * 4)
         self.block5 = Block(1, filters * 4)
         self.block6 = Block(2, filters * 8)
-
-        self.block7 = Block(1, filters * 8)
+        self.block7_1 = Block(1, filters * 8)
+        self.block7_2 = Block(1, filters * 8)
+        self.block7_3 = Block(1, filters * 8)
+        self.block7_4 = Block(1, filters * 8)
+        self.block7_5 = Block(1, filters * 8)
         self.block8 = Block(2, filters * 16)
         self.block9 = Block(2, filters * 16)
 
@@ -60,8 +63,11 @@ class Mobilenet(tf.keras.Model):
         x = self.block4(x)
         x = self.block5(x)
         x = self.block6(x)
-        for i in range(5):
-            x = self.block7(x)
+        x = self.block7_1(x)
+        x = self.block7_2(x)
+        x = self.block7_3(x)
+        x = self.block7_4(x)
+        x = self.block7_5(x)
         x = self.block8(x)
         x = self.block9(x)
 
@@ -70,9 +76,3 @@ class Mobilenet(tf.keras.Model):
             x = self.pool(x)
             x = self.fc(x)
             return x
-
-#------------------------------------------------------------------------------
-def MobileNet(input_shape, classes, filters = 64):
-    model = Mobilenet(classes,filters)
-    model.build(input_shape = input_shape)
-    return model

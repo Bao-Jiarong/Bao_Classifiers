@@ -56,10 +56,3 @@ class Alexnet(tf.keras.Model):
             x = self.dense3(x)
             x = self.dense4(x)
         return x
-
-
-#------------------------------------------------------------------------------
-def AlexNet(input_shape, classes, filters):
-    model = Alexnet(classes, filters = filters, include_top = True)
-    model.build(input_shape = input_shape)
-    return model

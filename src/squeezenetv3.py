@@ -92,9 +92,3 @@ class Squeezenetv3(tf.keras.Model):
             x = self.globalaverage(x)
             x = self.softmax(x)
             return x
-
-#------------------------------------------------------------------------------
-def SqueezeNetv3(input_shape, classes, filters = 16):
-    model = Squeezenetv3(classes)
-    model.build(input_shape = input_shape)
-    return model
